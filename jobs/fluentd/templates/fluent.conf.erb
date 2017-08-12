@@ -1,0 +1,13 @@
+<system>
+  log_level info
+</system>
+
+<source>
+  @type dummy
+  tag  dummy
+  dummy {"hello":"world"}
+</source>
+
+<match **>
+  @type stdout
+</match>

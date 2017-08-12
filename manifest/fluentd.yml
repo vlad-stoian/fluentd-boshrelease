@@ -1,0 +1,33 @@
+---
+name: fluentd-test
+director_uuid: 759e33fe-f241-45f8-8ad9-4efe2e58230c
+
+releases:
+- {name: fluentd, version: latest}
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: latest
+
+instance_groups:
+- name: fluentd
+  instances: 3
+  azs: [z1]
+  jobs:
+  - name: fluentd
+    release: fluentd
+    properties:
+      port: 5140
+  vm_type: default
+  stemcell: default
+  persistent_disk_type: default
+  networks:
+  - name: default
+
+update:
+  canaries: 1
+  max_in_flight: 3
+  canary_watch_time: 15000-30000
+  update_watch_time: 15000-300000
+

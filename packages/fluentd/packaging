@@ -1,0 +1,9 @@
+set -e
+
+cp -R fluentd/{Gemfile,Gemfile.lock,vendor} ${BOSH_INSTALL_TARGET}
+cd ${BOSH_INSTALL_TARGET}
+
+/var/vcap/packages/ruby/bin/bundle install \
+  --local \
+  --deployment \
+  --without development test

@@ -1,0 +1,6 @@
+check process fluentd
+  with pidfile /var/vcap/sys/run/fluentd/pid
+  start program "/var/vcap/jobs/fluentd/bin/ctl start"
+  stop program "/var/vcap/jobs/fluentd/bin/ctl stop"
+  group vcap
+

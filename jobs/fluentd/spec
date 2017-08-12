@@ -1,0 +1,12 @@
+---
+name: fluentd
+
+templates: 
+  ctl.erb: bin/ctl
+  fluent.conf.erb: config/fluent.conf
+
+packages:
+- fluentd
+- ruby
+
+properties: {}

@@ -1,0 +1,8 @@
+---
+name: fluentd
+
+dependencies:
+- ruby
+
+files:
+- fluentd/**/* # make sure to run bundle before
