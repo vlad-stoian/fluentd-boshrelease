@@ -1,6 +1,3 @@
-fluentd/fluentd-0.12.39.gem:
-  size: 183296
-  sha: 4f966a146233bf62f49fa7c00a697f88b49bfdb1
 ruby:
   size: 336384
   sha: bd1e1ba80789ea013a11a2909a154dcee118ebbc
