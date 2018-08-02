@@ -19,7 +19,7 @@ case $1 in
 
     export PATH=/var/vcap/packages/ruby/bin:$PATH
 
-    exec /var/vcap/packages/ruby/bin/bundle exec \
+    exec chpst -u vcap:vcap /var/vcap/packages/ruby/bin/bundle exec \
       fluentd -c $CONF_DIR\fluent.conf \
       >>  $LOG_DIR/${JOB_NAME}.stdout.log \
       2>> $LOG_DIR/${JOB_NAME}.stderr.log
@@ -27,7 +27,7 @@ case $1 in
     ;;
 
   stop)
-    kill -9 `cat $PIDFILE`
+    kill -SIGTERM `cat $PIDFILE`
     rm -f $PIDFILE
 
     ;;
@@ -36,4 +36,3 @@ case $1 in
     echo "Usage: ctl {start|stop}" ;;
 
 esac
-

@@ -17,10 +17,22 @@ instance_groups:
   - name: fluentd
     release: fluentd
     properties:
-      port: 5140
-  vm_type: default
+      config: |
+        <system>
+          log_level info
+        </system>
+
+        <source>
+          @type dummy
+          tag  dummy
+          dummy {"hello":"world"}
+        </source>
+
+        <match **>
+          @type stdout
+        </match>
+  vm_type: micro
   stemcell: default
-  persistent_disk_type: default
   networks:
   - name: hughson-services-subnet
 
