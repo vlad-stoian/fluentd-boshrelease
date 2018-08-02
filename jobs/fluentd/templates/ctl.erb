@@ -10,6 +10,8 @@ PIDFILE=${RUN_DIR}/pid
 case $1 in
 
   start)
+    /var/vcap/jobs/bosh-dns/bin/bosh_dns_resolvconf_ctl start
+
     mkdir -p $RUN_DIR $LOG_DIR
     chown -R vcap:vcap $RUN_DIR $LOG_DIR
 

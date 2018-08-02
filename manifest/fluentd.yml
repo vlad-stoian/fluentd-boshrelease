@@ -17,6 +17,7 @@ instance_groups:
   - name: fluentd
     release: fluentd
     properties:
+      bosh_dns_name: fluentd.internal
       config: |
         <system>
           log_level info

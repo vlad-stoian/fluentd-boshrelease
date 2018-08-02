@@ -4,6 +4,7 @@ name: fluentd
 templates:
   ctl.erb: bin/ctl
   fluent.conf.erb: config/fluent.conf
+  aliases.json.erb: dns/aliases.json
 
 packages:
 - fluentd
@@ -12,3 +13,5 @@ packages:
 properties:
   config:
     description: The fluentd config
+  bosh_dns_name:
+    description: The bosh DNS name
